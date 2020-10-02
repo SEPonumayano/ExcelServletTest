@@ -57,7 +57,7 @@ public class Excelinput extends HttpServlet {
 			//どこの列？
 			Cell cell=row.getCell(0);
 
-			//指定の値取ってきます
+			//指定の値取ってきます。
 			value=cell.getStringCellValue();
 
 			Row row1=sh.getRow(0);
@@ -68,7 +68,7 @@ public class Excelinput extends HttpServlet {
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
-		System.out.println(value);
+		//System.out.println(value);
 
 		request.setAttribute("value", value);
 		request.setAttribute("value1", value1);

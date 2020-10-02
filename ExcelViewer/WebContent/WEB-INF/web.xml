@@ -29,4 +29,14 @@
     <servlet-name>Excelentry</servlet-name>
     <url-pattern>/Excelentry</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Exceledit</display-name>
+    <servlet-name>Exceledit</servlet-name>
+    <servlet-class>edit.Exceledit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Exceledit</servlet-name>
+    <url-pattern>/Exceledit</url-pattern>
+  </servlet-mapping>
 </web-app>
