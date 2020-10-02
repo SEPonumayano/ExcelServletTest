@@ -60,6 +60,7 @@ public class Excelinput extends HttpServlet {
 			//指定の値取ってきます。
 			value=cell.getStringCellValue();
 
+			//別の値もとる場合
 			Row row1=sh.getRow(0);
 			Cell cell1=row1.getCell(1);
 			value1=cell1.getStringCellValue();
