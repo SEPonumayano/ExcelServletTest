@@ -1,6 +1,5 @@
 package entry;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -14,7 +13,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 
@@ -51,29 +50,12 @@ public class Excelentry extends HttpServlet {
 
     	String name=request.getParameter("name");
     	String price=request.getParameter("price");
+    	String filename=request.getParameter("filename");
 
-    	FileInputStream in=null;
-		Workbook wb=null;
-
-		try {
-			//編集したいファイルの場所と名前
-			in=new FileInputStream("C:\\Users\\onumaayano1199\\Pictures\\Sample1.xlsx");
-
-			//編集機能へファイルを葬る
-			wb =WorkbookFactory.create(in);
-
-		}catch(IOException e) {
-			System.out.println(e.toString());
-		}finally {
-			try {
-				in.close();
-			}catch(IOException e) {
-				System.out.println(e.toString());
-			}
-		}
+    	Workbook wb = new XSSFWorkbook();
 
 		//①書き込みたいシート
-		Sheet sheet1=wb.getSheet("new sheet");
+		Sheet sheet1 = wb.createSheet();
 
 		//②どこの行？※1列目=0
 		Row row1=sheet1.createRow(0);
@@ -92,7 +74,7 @@ public class Excelentry extends HttpServlet {
 
 		try {
 			//ここに返します
-			out=new FileOutputStream("C:\\Users\\onumaayano1199\\Pictures\\Sample1.xlsx");
+			out=new FileOutputStream("C:\\Users\\onumaayano1199\\Pictures\\"+filename+".xlsx");
 
 			//編集部分を書いて保存しまーす
 			wb.write(out);
@@ -101,6 +83,7 @@ public class Excelentry extends HttpServlet {
 			System.out.println(e.toString());
 		}finally {
 			try {
+				wb.close();
 				out.close();
 			}catch(IOException e) {
 				System.out.println(e.toString());

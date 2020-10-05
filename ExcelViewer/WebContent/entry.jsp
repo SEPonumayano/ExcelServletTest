@@ -10,6 +10,7 @@
 <form action="Excelentry" method="post">
 <p>name<input type="text" name="name"></p>
 <p>price<input type="text" name="price"></p>
+<p>filename<input type="text" name="filename"></p>
 <br>
 <p><input type="submit" value="送信"></p>
 

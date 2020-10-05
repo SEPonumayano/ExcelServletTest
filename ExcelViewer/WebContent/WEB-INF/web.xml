@@ -39,4 +39,14 @@
     <servlet-name>Exceledit</servlet-name>
     <url-pattern>/Exceledit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExceldataEdit</display-name>
+    <servlet-name>ExceldataEdit</servlet-name>
+    <servlet-class>edit.ExceldataEdit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExceldataEdit</servlet-name>
+    <url-pattern>/ExceldataEdit</url-pattern>
+  </servlet-mapping>
 </web-app>
